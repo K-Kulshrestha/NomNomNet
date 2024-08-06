@@ -104,8 +104,10 @@ export default function Inventory({ user, handleLogout }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchVisible, setSearchVisible] = useState(false) // Manage search bar visibility
 
+  const userInventoryRef = collection(firestore, 'users', user.uid, 'inventory')
+
   const updateInventory = async () => {
-    const snapshot = query(collection(firestore, 'inventory'))
+    const snapshot = query(userInventoryRef)
     const docs = await getDocs(snapshot)
     const inventoryList = []
     docs.forEach((doc) => {
@@ -120,7 +122,7 @@ export default function Inventory({ user, handleLogout }) {
 
   const addItem = async (item) => {
     if (item.trim() === '') return
-    const docRef = doc(firestore, 'inventory', item)
+    const docRef = doc(userInventoryRef, item)
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
@@ -133,7 +135,7 @@ export default function Inventory({ user, handleLogout }) {
   }
 
   const removeItem = async (item) => {
-    const docRef = doc(firestore, 'inventory', item)
+    const docRef = doc(userInventoryRef, item)
     const docSnap = await getDoc(docRef)
 
     if (docSnap.exists()) {
