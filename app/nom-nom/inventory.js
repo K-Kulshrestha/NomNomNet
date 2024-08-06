@@ -1,8 +1,8 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { firestore, auth } from '@/firebase'
 import { Box, Typography, Modal, Stack, TextField, Button, Fade, Backdrop } from '@mui/material'
-import { collection, getDocs, getDoc, setDoc, doc, deleteDoc, query } from 'firebase/firestore'
+import { collection, getDocs, getDoc, setDoc, doc, deleteDoc } from 'firebase/firestore'
 import { styled } from '@mui/system'
 import SearchIcon from '@mui/icons-material/Search'
 import AddIcon from '@mui/icons-material/Add'
@@ -106,11 +106,10 @@ export default function Inventory({ user, handleLogout }) {
 
   const userInventoryRef = collection(firestore, 'users', user.uid, 'inventory')
 
-  const updateInventory = async () => {
-    const snapshot = query(userInventoryRef)
-    const docs = await getDocs(snapshot)
+  const updateInventory = useCallback(async () => {
+    const snapshot = await getDocs(userInventoryRef)
     const inventoryList = []
-    docs.forEach((doc) => {
+    snapshot.forEach((doc) => {
       inventoryList.push({
         name: doc.id,
         ...doc.data(),
@@ -118,7 +117,7 @@ export default function Inventory({ user, handleLogout }) {
     })
     setInventory(inventoryList)
     console.log(inventoryList)
-  }
+  }, [userInventoryRef])
 
   const addItem = async (item) => {
     if (item.trim() === '') return
@@ -152,7 +151,7 @@ export default function Inventory({ user, handleLogout }) {
 
   useEffect(() => {
     updateInventory()
-  }, [])
+  }, [updateInventory])
 
   const handleOpen = () => setOpen(true)
   const handleClose = () => {
