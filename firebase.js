@@ -6,13 +6,13 @@ import { getAuth, GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDOCqbesK7-bhZN3IWR9rLYNrAh8EI1wHY",
-  authDomain: "pantry-tracker-bdcd0.firebaseapp.com",
-  projectId: "pantry-tracker-bdcd0",
-  storageBucket: "pantry-tracker-bdcd0.appspot.com",
-  messagingSenderId: "394282894320",
-  appId: "1:394282894320:web:5c1896687eb7ac836fd335",
-  measurementId: "G-EMMZ36CN17"
+  apiKey:  next_public_firebase_apiKey,
+  authDomain: next_public_firebase_authDomain,
+  projectId: next_public_firebase_projectId,
+  storageBucket: next_public_firebase_storageBucket,
+  messagingSenderId: next_public_firebase_messagingSenderId,
+  appId: next_public_firebase_appId,
+  measurementId:   next_public_firebase_measurementId
 };
 
 // Initialize Firebase
