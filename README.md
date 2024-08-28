@@ -1,5 +1,7 @@
 # NomNomNet
 
+![image](https://github.com/user-attachments/assets/60536c2a-87ae-4a17-821d-1736d1a7ca89)
+
 A minimalistic pantry tracking app made with love and care, designed to help you keep track of your pantry items effortlessly.
 
 ## Features
