@@ -56,27 +56,26 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
 
     In your project settings, locate your Firebase configuration details, which should look like     this:
    ```bash
-   const firebaseConfig = {
-      apiKey: "YOUR_API_KEY",
-      authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-      projectId: "YOUR_PROJECT_ID",
-      storageBucket: "YOUR_PROJECT_ID.appspot.com",
-      messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-      appId: "YOUR_APP_ID",
-      measurementId: "YOUR_MEASUREMENT_ID"
-    };
+     const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID",
+        measurementId: "YOUR_MEASUREMENT_ID"
+      };
 
+5. **Make sure the .env.local file is ignored in .gitignore to avoid exposing sensitive information.**
+   ```bash
+       .env.local
 
-  **Make sure the .env.local file is ignored in .gitignore to avoid exposing sensitive information.**
-    ```bash
-    #.gitignore .env.local
-
-5. **Run the development server:**
+6. **Run the development server:**
 
    ```bash
    npm run dev
 
-6. **Open [http://localhost:3000](http://localhost:3000) to view the app.**
+7. **Open [http://localhost:3000](http://localhost:3000) to view the app.**
 
 
 ## Learn More
