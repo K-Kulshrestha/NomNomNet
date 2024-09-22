@@ -67,11 +67,9 @@ Make sure you have [Node.js](https://nodejs.org/) installed.
     };
 
 
-**Make sure the .env.local file is ignored in .gitignore to avoid exposing sensitive information.**
-
+  **Make sure the .env.local file is ignored in .gitignore to avoid exposing sensitive information.**
     ```bash
-     # .gitignore
-    .env.local
+    #.gitignore .env.local
 
 5. **Run the development server:**
 
